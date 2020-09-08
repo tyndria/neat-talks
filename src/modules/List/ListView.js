@@ -24,7 +24,7 @@ export const ListView = ({
 
   return (
     <FlatList
-      style={styles.container}
+      style={styles.listContainer}
       data={items}
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
@@ -42,8 +42,8 @@ export const ListView = ({
 };
 
 const styles = StyleSheet.create({
-  container: {
-    marginVertical: 20,
+  listContainer: {
+    marginVertical: 35,
   },
   item: {
     backgroundColor: '#f9c2ff',
