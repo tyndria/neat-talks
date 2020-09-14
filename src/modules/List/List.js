@@ -7,11 +7,11 @@ import { generateData, requestData } from './utils';
 
 const prepareItem = (k) => ({ title: k, id: `id:${k}` });
 
-const CHUNK_SIZE = 20;
+const CHUNK_SIZE = 28;
 const initialState = generateData(1, CHUNK_SIZE);
 
 export const List = () => {
-  const [threshold, setThreshold] = useState(1.2);
+  const [threshold, setThreshold] = useState('1');
 
   const [data, setData] = useState(initialState);
   const [loadingMore, setLoadingMore] = useState(false);
@@ -34,11 +34,16 @@ export const List = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <View>
+      <View style={{ marginHorizontal: 16 }}>
         <Text>Chunk length: {CHUNK_SIZE}</Text>
         <Text>Visible length: ~7</Text>
-        <Text>Threshold: {threshold}</Text>
-        <TextInput value={threshold} onChange={handleThresholdChange} />
+        <Text>Threshold</Text>
+        <TextInput
+          style={{ paddingVertical: 5 }}
+          value={threshold}
+          defaultValue={threshold}
+          onChange={handleThresholdChange}
+        />
       </View>
       <ListView
         items={data.map(prepareItem)}
