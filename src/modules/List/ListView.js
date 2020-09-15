@@ -30,11 +30,7 @@ export const ListView = ({
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         onEndReached={onLoadMore}
-        onScroll={(e) => [
-          console.log(
-            e.nativeEvent.contentSize.height - e.nativeEvent.contentOffset.y,
-          ),
-        ]}
+        onScroll={(e) => [console.log(e.nativeEvent.layoutMeasurement)]}
         ListFooterComponent={() =>
           loadingMore ? (
             <View>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, Alert, TextInput } from 'react-native';
+import { Text, View } from 'react-native';
 
 import { ListView } from './ListView';
 
@@ -11,8 +11,6 @@ const CHUNK_SIZE = 28;
 const initialState = generateData(1, CHUNK_SIZE);
 
 export const List = () => {
-  const [threshold, setThreshold] = useState('1');
-
   const [data, setData] = useState(initialState);
   const [loadingMore, setLoadingMore] = useState(false);
 
@@ -25,25 +23,14 @@ export const List = () => {
     }
   };
 
-  const reload = () => setData(initialState);
-
-  const handleThresholdChange = (value) => {
-    value && setThreshold(value);
-    reload();
-  };
+  const threshold = 2;
 
   return (
     <View style={{ flex: 1 }}>
       <View style={{ marginHorizontal: 16 }}>
         <Text>Chunk length: {CHUNK_SIZE}</Text>
         <Text>Visible length: ~7</Text>
-        <Text>Threshold</Text>
-        <TextInput
-          style={{ paddingVertical: 5 }}
-          value={threshold}
-          defaultValue={threshold}
-          onChange={handleThresholdChange}
-        />
+        <Text>Threshold: {threshold}</Text>
       </View>
       <ListView
         items={data.map(prepareItem)}
