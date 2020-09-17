@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
 import { ListView } from './ListView';
 
@@ -23,14 +23,14 @@ export const List = () => {
     }
   };
 
-  const threshold = 2;
+  const threshold = 1;
 
   return (
     <View style={{ flex: 1 }}>
       <View style={{ marginHorizontal: 16 }}>
-        <Text>Chunk length: {CHUNK_SIZE}</Text>
-        <Text>Visible length: ~7</Text>
-        <Text>Threshold: {threshold}</Text>
+        <Text style={styles.text}>Chunk length: {CHUNK_SIZE}</Text>
+        <Text style={styles.text}>Visible length: ~7</Text>
+        <Text style={styles.text}>Threshold: {threshold}</Text>
       </View>
       <ListView
         items={data.map(prepareItem)}
@@ -41,3 +41,9 @@ export const List = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 18,
+  },
+});
