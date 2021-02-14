@@ -1,3 +1,4 @@
-# observe-flat-list
+### Neat Talks
 
-[Presentation link](https://docs.google.com/presentation/d/1x-biYjiaj_yWYkP2MA8SKyblcq0XwYe_NkvPzt31m8E/edit?usp=sharing)
+- Demo for the topic "What you should know about FlatList"
+- Demo for the topic "React & React Native News"
