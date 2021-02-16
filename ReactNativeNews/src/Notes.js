@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { View, Button } from 'react-native';
 
 import { NotesView } from './NotesView';
 
@@ -8,12 +8,14 @@ export const Notes = () => {
   const [loadingMore, setLoadingMore] = useState(false);
 
   const handlePress = () => {
+    if (data.length > 4) {
+      throw Error('Number of posts is limited')
+    }
     if (!loadingMore) {
       setLoadingMore(true);
       fetch(`https://jsonplaceholder.typicode.com/posts/${data.length + 1}`)
         .then(response => response.json())
         .then(newData => {
-          console.log(newData)
           setData([...data, newData])
           setLoadingMore(false);
         })
@@ -22,7 +24,7 @@ export const Notes = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <TouchableOpacity onPress={handlePress}><Text>Add new post</Text></TouchableOpacity>
+      <Button color="#f194ff" onPress={handlePress} title="Add Post" />
       <NotesView
         items={data}
       />
