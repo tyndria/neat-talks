@@ -17,7 +17,7 @@ target 'ReactNativeNews' do
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
   # you should disable these next few lines.
-  use_flipper!
+  use_flipper!('Flipper' => '0.62.0')
   post_install do |installer|
     flipper_post_install(installer)
   end
@@ -31,3 +31,4 @@ target 'ReactNativeNews-tvOS' do
     # Pods for testing
   end
 end
+pod 'OpenSSL-Universal', '~>1.0.2.20'
