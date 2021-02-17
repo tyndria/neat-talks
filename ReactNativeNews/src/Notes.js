@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Button } from 'react-native';
+import { View, Pressable, Text } from 'react-native';
 
 import { NotesView } from './NotesView';
 
@@ -24,7 +24,14 @@ export const Notes = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <Button color="#f194ff" onPress={handlePress} title="Add Post" />
+      <Pressable
+        onPress={handlePress}
+        hitSlop={10}
+        style={({ pressed }) => ({
+          backgroundColor: pressed ? 'lightskyblue' : 'white'
+        })}>
+        <Text>Add Post</Text>
+      </Pressable>
       <NotesView
         items={data}
       />
