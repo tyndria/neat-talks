@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Pressable, Text } from 'react-native';
+import { View, Pressable, Text, StyleSheet } from 'react-native';
 
 import { NotesView } from './NotesView';
 
@@ -27,10 +27,10 @@ export const Notes = () => {
       <Pressable
         onPress={handlePress}
         hitSlop={10}
-        style={({ pressed }) => ({
-          backgroundColor: pressed ? 'lightskyblue' : 'white'
-        })}>
-        <Text>Add Post</Text>
+        style={({ pressed }) => [{
+          opacity: pressed ? 0.7 : 1,
+        }, styles.button]}>
+        <Text style={styles.text}>Add Post</Text>
       </Pressable>
       <NotesView
         items={data}
@@ -38,3 +38,17 @@ export const Notes = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  button: {
+    padding: 10,
+    margin: 15,
+    width: 100,
+    borderRadius: 5,
+    backgroundColor: '#f9c2ff'
+  },
+  text: {
+    textAlign: 'center'
+  }
+});
+

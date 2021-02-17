@@ -54,13 +54,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   item: {
-    backgroundColor: '#f9c2ff',
     padding: 20,
     marginVertical: 8,
-    marginHorizontal: 16,
+    marginRight: 15,
   },
   title: {
-    fontSize: 15,
+    color: '#6c3072',
+    fontSize: 17,
+    fontWeight: '600'
   },
   highlight: {
     position: 'absolute',
